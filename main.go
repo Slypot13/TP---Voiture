@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 type TrunkItem struct {
@@ -30,5 +31,14 @@ func (c Car) displayCar() {
 	}
 	for _, item := range c.trunk {
 		fmt.Printf("\t- %s x%d\n", item.name, item.quantity)
+	}
+}
+
+func (c *Car) changeColor(color string) {
+	if strings.EqualFold(c.color, color) {
+		fmt.Println("Oupss le véhicule est déjà de cette couleur....")
+	} else {
+		c.color = strings.ToLower(color)
+		fmt.Printf("La couleur du véhicule à changé : %s\n", c.color)
 	}
 }
