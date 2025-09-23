@@ -42,3 +42,33 @@ func (c *Car) changeColor(color string) {
 		fmt.Printf("La couleur du véhicule à changé : %s\n", c.color)
 	}
 }
+func (c *Car) addItemToTrunck(item TrunkItem) {
+	isFind := false
+	for i := 0; i < len(c.trunk); i++ {
+		if strings.EqualFold(c.trunk[i].name, item.name) {
+			c.trunk[i].quantity += item.quantity
+			isFind = true
+			break
+		}
+	}
+	if !isFind {
+		item.name = strings.ToLower(item.name)
+		c.trunk = append(c.trunk, item)
+	}
+	fmt.Println(fmt.Sprintf("+%d %s ajouté dans le coffre du véhicule", item.quantity, item.name))
+}
+
+func main() {
+	item01 := TrunkItem{"sac de course", 1}
+	item02 := TrunkItem{"triangle de signalisation", 1}
+
+	car := Car{"RENAULT", "Clio III", "black", 130, []TrunkItem{item01, item02}}
+
+	car.displayCar()
+	car.changeColor("black")
+	car.changeColor("red")
+	car.addItemToTrunck(item01)
+	car.addItemToTrunck(TrunkItem{"Sac de course", 5})
+	car.addItemToTrunck(TrunkItem{"ordinateur portable", 1})
+	car.displayCar()
+}
