@@ -1,0 +1,1 @@
+petit probleme de chargeur, donc rendu en retard, mais prévenu, pdf pas fini, manque certains screen car bug avec certaines commande, j'ai fais au mieux pour pas le rendre trop tard, merci de votre compréhension.
